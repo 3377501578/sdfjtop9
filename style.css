@@ -1,0 +1,867 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background-color: #fff5f8;
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+    color: #333;
+}
+
+/* =========================
+   整体容器
+   ========================= */
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    text-align: center;
+}
+
+/* =========================
+   标题
+   ========================= */
+
+h1 {
+    font-size: 42px;
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 19px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   第一阶段：选择照片
+   ========================= */
+
+#selectionPage {
+    display: block;
+}
+
+#selectionInfo {
+    display: inline-block;
+    margin: 10px auto 30px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: white;
+    color: #ff6f96;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 15组整体 */
+
+#selectionGroups {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* 每一组 */
+
+.selection-group {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 20px;
+    border-radius: 22px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* 第几组 */
+
+.group-title {
+    margin: 0 0 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* 每组里面的4张照片 */
+
+.group-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+/* =========================
+   照片卡片
+   ========================= */
+
+.person {
+    background-color: white;
+    padding: 8px;
+    border-radius: 16px;
+    cursor: pointer;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        outline 0.2s ease;
+}
+
+/* 鼠标放上去 */
+
+.person:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 被选中的照片 */
+
+.person.selected {
+    outline: 5px solid #ff7fa2;
+    transform: scale(1.03);
+}
+
+/* 照片 */
+
+.person img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 11px;
+}
+
+/* 人物名字 */
+
+.person p {
+    margin: 10px 0 5px;
+    font-size: 17px;
+}
+
+/* =========================
+   下一阶段按钮
+   ========================= */
+
+#nextButton,
+#restartButton {
+    margin-top: 35px;
+    padding: 15px 45px;
+
+    border: none;
+    border-radius: 30px;
+
+    background-color: #ff7fa2;
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#nextButton:hover,
+#restartButton:hover {
+    background-color: #ff5f89;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   第二、三、四阶段
+   ========================= */
+
+#battlePage {
+    display: none;
+}
+
+#stageTitle {
+    margin-bottom: 10px;
+}
+
+#battleCount {
+    font-size: 18px;
+    color: #999;
+    margin: 5px 0 10px;
+}
+
+#battleInstruction {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* 比赛照片区域 */
+
+.battle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    width: 100%;
+    margin: 0 auto;
+
+    flex-wrap: wrap;
+}
+
+/* 比赛中的照片 */
+
+.battle-person {
+    width: 260px;
+
+    background-color: white;
+
+    padding: 10px;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.battle-person:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* 比赛中的图片 */
+
+.battle-person img {
+    width: 100%;
+
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 15px;
+}
+
+/* 比赛中的名字 */
+
+.battle-person p {
+    margin: 12px 0 5px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+/* VS */
+
+.vs {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #ff7fa2;
+
+    flex-shrink: 0;
+}
+
+/* =========================
+   最终排行榜
+   ========================= */
+
+#resultPage {
+    display: none;
+}
+
+#resultPage h1 {
+    margin-bottom: 5px;
+}
+
+/* 排行榜 */
+
+#ranking {
+    width: 650px;
+    max-width: 95%;
+
+    margin: 35px auto;
+}
+
+/* 每一个排名 */
+
+.rank-item {
+    display: flex;
+    align-items: center;
+
+    background-color: white;
+
+    margin: 12px 0;
+
+    padding: 12px 18px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* 名次 */
+
+.rank-number {
+    width: 55px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #ff7fa2;
+}
+
+/* 排行榜照片 */
+
+.rank-item img {
+    width: 65px;
+    height: 85px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-right: 20px;
+}
+
+/* 名字 */
+
+.rank-name {
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+/* =========================
+   手机端
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: 94%;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    /* 第一阶段变成2列 */
+
+    .group-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .selection-group {
+        padding: 12px;
+    }
+
+    .group-title {
+        font-size: 18px;
+    }
+
+    .person p {
+        font-size: 15px;
+    }
+
+    /* 比赛照片 */
+
+    .battle {
+        gap: 15px;
+    }
+
+    .battle-person {
+        width: 42%;
+        min-width: 140px;
+    }
+
+    .battle-person p {
+        font-size: 17px;
+    }
+
+    .vs {
+        font-size: 22px;
+    }
+
+    /* 排行榜 */
+
+    #ranking {
+        width: 95%;
+    }
+
+    .rank-item img {
+        width: 55px;
+        height: 72px;
+    }
+
+    .rank-name {
+        font-size: 17px;
+    }
+}
+
+/* =========================
+   更小的手机
+   ========================= */
+
+@media (max-width: 500px) {
+
+    .battle-person {
+        width: 45%;
+        min-width: 120px;
+    }
+
+    .battle-person p {
+        font-size: 15px;
+    }
+
+    .vs {
+        font-size: 18px;
+    }
+
+    #nextButton,
+    #restartButton {
+        padding: 13px 35px;
+        font-size: 16px;
+    }
+}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>喜欢的脸 TOP 9</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ========================= -->
+        <!-- 第一阶段：60张照片预选 -->
+        <!-- ========================= -->
+
+        <section id="selectionPage">
+
+            <h1>喜欢的脸 TOP 9</h1>
+
+            <p class="subtitle">
+                从每组照片中选择你喜欢的脸
+            </p >
+
+            <p id="selectionInfo">
+                已选择 0 张
+            </p >
+
+            <!--
+                这里由 JavaScript 自动生成：
+
+                第1组
+                [照片] [照片] [照片] [照片]
+
+                第2组
+                [照片] [照片] [照片] [照片]
+
+                ...
+
+                第15组
+                [照片] [照片] [照片] [照片]
+            -->
+
+            <div id="selectionGroups">
+                <!-- JavaScript生成15组 -->
+            </div>
+
+            <button id="nextButton">
+                开始下一阶段
+            </button>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- 第二、三、四阶段 -->
+        <!-- ========================= -->
+
+        <section id="battlePage">
+
+            <!-- 当前阶段名称 -->
+
+            <h1 id="stageTitle">
+                第二阶段
+            </h1>
+
+
+            <!-- 当前进度 -->
+
+            <p id="battleCount">
+                第 1 组
+            </p >
+
+
+            <!-- 当前阶段规则说明 -->
+
+            <p id="battleInstruction">
+                请按照喜欢程度依次点击照片
+            </p >
+
+
+            <!--
+                这里由 JavaScript 自动生成2～4张照片
+
+                例如：
+
+                [照片A] [照片B] [照片C] [照片D]
+
+                第一次点击 = 第1名
+                第二次点击 = 第2名
+            -->
+
+            <div class="battle" id="battleArea">
+                <!-- JavaScript生成照片 -->
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- 最终排行榜 -->
+        <!-- ========================= -->
+
+        <section id="resultPage">
+
+            <h1>TOP 9</h1>
+
+            <p class="subtitle">
+                你的最终排名
+            </p >
+
+
+            <!--
+                JavaScript自动生成：
+
+                1  [照片]
+                2  [照片]
+                3  [照片]
+                ...
+                9  [照片]
+            -->
+
+            <div id="ranking">
+                <!-- JavaScript生成最终排名 -->
+            </div>
+
+
+            <button id="restartButton">
+                再玩一次
+            </button>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+/* =========================
+   第一阶段按钮
+   ========================= */
+
+.selection-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+
+.selection-buttons button {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+/* 返回按钮 */
+
+.back-button {
+    background-color: #dddddd;
+    color: #555555;
+}
+
+
+.back-button:hover {
+    background-color: #cccccc;
+}
+
+
+.back-button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* 下一组 */
+
+.next-group-button {
+    background-color: #ff7fa2;
+    color: white;
+}
+
+
+.next-group-button:hover {
+    background-color: #ff5f89;
+}
+
+
+/* =========================
+   PK阶段按钮
+   ========================= */
+
+.battle-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+
+.battle-buttons button {
+    padding: 13px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+.battle-buttons button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+/* ================================
+   最终 TOP 9 九宫格
+   ================================ */
+
+#ranking {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+
+    width: 100%;
+    max-width: 720px;
+
+    margin: 25px auto;
+}
+
+
+/* ================================
+   每一个照片卡片
+   ================================ */
+
+.rank-item {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+
+    background: white;
+
+    transition: transform 0.2s ease;
+}
+
+
+/* 鼠标移动到照片上时稍微浮起 */
+
+.rank-item:hover {
+    transform: translateY(-4px);
+}
+
+
+/* ================================
+   照片
+   ================================ */
+
+.rank-item img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ================================
+   左上角排名
+   ================================ */
+
+.rank-number {
+    position: absolute;
+
+    top: 10px;
+    left: 10px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    color: #333;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+    z-index: 3;
+}
+
+
+/* ================================
+   人物名字
+   ================================ */
+
+.rank-name {
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+
+    padding: 7px 10px;
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    background: rgba(101, 67, 33, 0.75);
+
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+
+    z-index: 2;
+}
+
+
+/* ================================
+   第一名：淡金色
+   ================================ */
+
+.rank-item.rank-1 {
+    border: 3px solid rgba(212, 175, 55, 0.8);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.12),
+        0 8px 22px rgba(212, 175, 55, 0.20);
+}
+
+
+/* ================================
+   第二名：淡银色
+   ================================ */
+
+.rank-item.rank-2 {
+    border: 3px solid rgba(192, 192, 192, 0.8);
+
+    box-shadow:
+        0 0 0 3px rgba(192, 192, 192, 0.12),
+        0 8px 20px rgba(150, 150, 150, 0.16);
+}
+
+
+/* ================================
+   第三名：淡铜色
+   ================================ */
+
+.rank-item.rank-3 {
+    border: 3px solid rgba(205, 127, 50, 0.75);
+
+    box-shadow:
+        0 0 0 3px rgba(205, 127, 50, 0.10),
+        0 8px 20px rgba(205, 127, 50, 0.16);
+}
+
+
+/* ================================
+   手机端
+   ================================ */
+
+@media (max-width: 600px) {
+
+    #ranking {
+        gap: 10px;
+    }
+
+    .rank-item {
+        border-radius: 10px;
+    }
+
+    .rank-number {
+        width: 30px;
+        height: 30px;
+
+        top: 5px;
+        left: 5px;
+
+        font-size: 16px;
+    }
+
+    .rank-name {
+        font-size: 13px;
+        padding: 6px 4px;
+
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+    }
+}

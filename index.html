@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>喜欢的脸 TOP 9</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <section id="startPage">
+            <h1>决战峰峻颜值TOP9</h1>
+
+            <p class="subtitle">
+                从60张照片中选出你最喜欢的脸
+            </p>
+            <div class="notice">
+
+        <h2>游戏说明</h2>
+
+        <p>
+            本游戏共包含1~5代所有艺人照片，你将通过多轮选择，
+            最终选出属于你的 TOP 9。
+        </p>
+
+
+        <h2>注意事项</h2>
+
+        <p>
+            所有照片均仅用于本次个人娱乐体验。<br>
+            本网站为粉丝个人制作，非官方推出，与时代峰峻公司及所属艺人没有任何关系。<br>
+            排名结果仅代表你在本次游戏中的个人选择,不代表任何番位、人气排名。<br>
+            照片排序及分组均为随机生成。
+        </p>
+
+        <h2>开始前请注意</h2>
+
+        <p>
+            游戏开始后，请按照自己的真实喜好进行选择。
+            不需要考虑他人的评价。
+        </p>
+
+    </div>
+
+            <button id="startButton" class="start-button">
+                START
+            </button>
+        </section>
+
+
+        <section id="selectionPage">
+
+            <h1>初轮淘汰赛</h1>
+
+            <p class="subtitle">
+                从每组照片中选择0~4张你喜欢的脸（总数需>18）
+            </p>
+
+            <p id="selectionInfo">
+                第 1 / 15 组 · 已选择 0 张
+            </p>
+
+            <div id="selectionGroups">
+            </div>
+
+        </section>
+
+
+        <section id="battlePage">
+
+            <h1 id="stageTitle">
+                第二阶段
+            </h1>
+
+            <p id="battleCount">
+                第 1 组
+            </p>
+
+            <p id="battleInstruction">
+                请按照喜欢程度依次点击两张照片
+            </p>
+
+            <div class="battle" id="battleArea">
+            </div>
+
+        </section>
+
+
+        <section id="resultPage">
+
+            <h1>
+                TOP 9
+            </h1>
+
+            <p class="subtitle">
+                你的最终排名（结果仅供参考~）
+            </p>
+
+            <div id="ranking">
+            </div>
+
+            <button id="restartButton">
+                再玩一次
+            </button>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
