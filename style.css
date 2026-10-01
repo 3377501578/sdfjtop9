@@ -721,6 +721,41 @@ h1 {
    照片
    ================================ */
 
+/* ================================
+   TOP 9 卡片
+   ================================ */
+
+.rank-item {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    /* 4～9名：浅灰色边框 */
+    border: 2px solid #e5e5e5;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease;
+}
+
+
+/* 鼠标移上去 */
+
+.rank-item:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ================================
+   照片
+   ================================ */
+
 .rank-item img {
     width: 100%;
     height: 100%;
@@ -728,6 +763,8 @@ h1 {
     display: block;
 
     object-fit: cover;
+
+    border-radius: 10px;
 }
 
 
@@ -738,97 +775,95 @@ h1 {
 .rank-number {
     position: absolute;
 
-    top: 10px;
-    left: 10px;
+    top: 7px;
+    left: 7px;
 
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 24px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 10px;
-
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.92);
 
     color: #333;
 
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: bold;
 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 7px;
 
-    z-index: 3;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.10);
+
+    z-index: 5;
 }
 
 
 /* ================================
-   人物名字
+   姓名
    ================================ */
 
 .rank-name {
     position: absolute;
 
-    left: 8px;
-    right: 8px;
-    bottom: 8px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    padding: 7px 10px;
+    padding: 8px 5px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    color: #333;
 
     text-align: center;
 
-    color: white;
+    font-size: 14px;
+    font-weight: 600;
 
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 0 0 10px 10px;
 
-    background: rgba(101, 67, 33, 0.75);
-
-    border-radius: 8px;
-
-    backdrop-filter: blur(4px);
-
-    z-index: 2;
+    z-index: 4;
 }
 
 
 /* ================================
-   第一名：淡金色
+   第一名：金色边框
    ================================ */
 
 .rank-item.rank-1 {
-    border: 3px solid rgba(212, 175, 55, 0.8);
+    border: 3px solid #d4af37;
 
     box-shadow:
-        0 0 0 3px rgba(212, 175, 55, 0.12),
-        0 8px 22px rgba(212, 175, 55, 0.20);
+        0 0 0 1px rgba(212, 175, 55, 0.25),
+        0 3px 10px rgba(212, 175, 55, 0.20);
 }
 
 
 /* ================================
-   第二名：淡银色
+   第二名：银色边框
    ================================ */
 
 .rank-item.rank-2 {
-    border: 3px solid rgba(192, 192, 192, 0.8);
+    border: 3px solid #bfc1c2;
 
     box-shadow:
-        0 0 0 3px rgba(192, 192, 192, 0.12),
-        0 8px 20px rgba(150, 150, 150, 0.16);
+        0 0 0 1px rgba(191, 193, 194, 0.25),
+        0 3px 10px rgba(150, 150, 150, 0.16);
 }
 
 
 /* ================================
-   第三名：淡铜色
+   第三名：铜色边框
    ================================ */
 
 .rank-item.rank-3 {
-    border: 3px solid rgba(205, 127, 50, 0.75);
+    border: 3px solid #b87333;
 
     box-shadow:
-        0 0 0 3px rgba(205, 127, 50, 0.10),
-        0 8px 20px rgba(205, 127, 50, 0.16);
+        0 0 0 1px rgba(184, 115, 51, 0.22),
+        0 3px 10px rgba(184, 115, 51, 0.16);
 }
 
 
@@ -838,30 +873,37 @@ h1 {
 
 @media (max-width: 600px) {
 
-    #ranking {
-        gap: 10px;
-    }
-
     .rank-item {
         border-radius: 10px;
     }
 
+    .rank-item img {
+        border-radius: 8px;
+    }
+
     .rank-number {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 21px;
 
         top: 5px;
         left: 5px;
 
-        font-size: 16px;
+        font-size: 12px;
+
+        border-radius: 6px;
     }
 
     .rank-name {
-        font-size: 13px;
-        padding: 6px 4px;
+        font-size: 12px;
+        padding: 6px 3px;
 
-        left: 5px;
-        right: 5px;
-        bottom: 5px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    /* 手机端前三名边框稍微细一点 */
+    .rank-item.rank-1,
+    .rank-item.rank-2,
+    .rank-item.rank-3 {
+        border-width: 2px;
     }
 }
