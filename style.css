@@ -1,4 +1,4 @@
-﻿* {
+* {
     box-sizing: border-box;
 }
 
@@ -721,63 +721,13 @@ h1 {
    照片
    ================================ */
 
-/* ================================
-   TOP 9 九宫格
-   ================================ */
-
-#ranking {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 16px;
-
-    width: 100%;
-    max-width: 720px;
-
-    margin: 25px auto;
-}
-
-
-/* ================================
-   每个卡片
-   ================================ */
-
-.rank-item {
-    position: relative;
-
-    width: 100%;
-
-    overflow: hidden;
-
-    background: #ffffff;
-
-    border: 2px solid #e5e5e5;
-
-    border-radius: 12px;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-
-    transition: transform 0.2s ease;
-}
-
-
-/* ================================
-   照片
-   这里才是真正的 1:1
-   ================================ */
-
 .rank-item img {
+    width: 100%;
+    height: 100%;
+
     display: block;
 
-    width: 100%;
-    height: auto;
-
-    aspect-ratio: 1 / 1;
-
     object-fit: cover;
-
-    border-radius: 10px 10px 0 0;
 }
 
 
@@ -788,91 +738,97 @@ h1 {
 .rank-number {
     position: absolute;
 
-    top: 7px;
-    left: 7px;
+    top: 10px;
+    left: 10px;
 
-    width: 32px;
-    height: 24px;
+    width: 34px;
+    height: 34px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    background: rgba(255, 255, 255, 0.92);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.88);
 
     color: #333;
 
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 17px;
+    font-weight: 700;
 
-    border-radius: 7px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.10);
-
-    z-index: 5;
+    z-index: 3;
 }
 
 
 /* ================================
-   姓名
-   不再覆盖照片
+   人物名字
    ================================ */
 
 .rank-name {
-    position: static;
+    position: absolute;
 
-    width: 100%;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
 
-    box-sizing: border-box;
-
-    padding: 7px 4px;
-
-    background: #ffffff;
-
-    color: #333;
+    padding: 7px 10px;
 
     text-align: center;
 
-    font-size: 14px;
-    font-weight: 600;
+    color: white;
 
-    line-height: 1.2;
+    font-size: 16px;
+    font-weight: bold;
+
+    background: rgba(101, 67, 33, 0.75);
+
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+
+    z-index: 2;
 }
 
 
 /* ================================
-   第一名：金色
+   第一名：淡金色
    ================================ */
 
 .rank-item.rank-1 {
-    border: 3px solid #d4af37;
+    border: 3px solid rgba(212, 175, 55, 0.8);
 
     box-shadow:
-        0 2px 8px rgba(212, 175, 55, 0.20);
+        0 0 0 3px rgba(212, 175, 55, 0.12),
+        0 8px 22px rgba(212, 175, 55, 0.20);
 }
 
 
 /* ================================
-   第二名：银色
+   第二名：淡银色
    ================================ */
 
 .rank-item.rank-2 {
-    border: 3px solid #c0c0c0;
+    border: 3px solid rgba(192, 192, 192, 0.8);
 
     box-shadow:
-        0 2px 8px rgba(150, 150, 150, 0.16);
+        0 0 0 3px rgba(192, 192, 192, 0.12),
+        0 8px 20px rgba(150, 150, 150, 0.16);
 }
 
 
 /* ================================
-   第三名：铜色
+   第三名：淡铜色
    ================================ */
 
 .rank-item.rank-3 {
-    border: 3px solid #b87333;
+    border: 3px solid rgba(205, 127, 50, 0.75);
 
     box-shadow:
-        0 2px 8px rgba(184, 115, 51, 0.16);
+        0 0 0 3px rgba(205, 127, 50, 0.10),
+        0 8px 20px rgba(205, 127, 50, 0.16);
 }
 
 
@@ -884,58 +840,28 @@ h1 {
 
     #ranking {
         gap: 10px;
-
-        margin-top: 20px;
     }
-
 
     .rank-item {
-        border-radius: 9px;
-
-        border-width: 1.5px;
+        border-radius: 10px;
     }
-
-
-    .rank-item img {
-        width: 100%;
-        height: auto;
-
-        aspect-ratio: 1 / 1;
-
-        border-radius: 7px 7px 0 0;
-    }
-
 
     .rank-number {
-        width: 28px;
-        height: 21px;
+        width: 30px;
+        height: 30px;
 
         top: 5px;
         left: 5px;
 
-        font-size: 12px;
-
-        border-radius: 6px;
+        font-size: 16px;
     }
-
 
     .rank-name {
-        padding: 6px 2px;
+        font-size: 13px;
+        padding: 6px 4px;
 
-        font-size: 12px;
-    }
-
-
-    /* 手机端前三名保留金银铜 */
-    .rank-item.rank-1 {
-        border: 2px solid #d4af37;
-    }
-
-    .rank-item.rank-2 {
-        border: 2px solid #c0c0c0;
-    }
-
-    .rank-item.rank-3 {
-        border: 2px solid #b87333;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
     }
 }
